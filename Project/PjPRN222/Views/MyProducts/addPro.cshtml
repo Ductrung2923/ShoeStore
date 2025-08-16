@@ -1,0 +1,82 @@
+﻿@model PjPRN222.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm Sản Phẩm";
+    Layout = "~/Views/Shared/_MenuSaler.cshtml";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-success">
+                <div class="card-header" style="background-color: #88c8bc; color: white; text-align: center;">
+                    <h3 class="mb-0">Add Products</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="addPro">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="ProductName" class="form-label fw-bold" style="color: black; ">ProductName</label>
+                            <div class="input-group">
+                                <span class="input-group-text" style="background-color: #88c8bc; color: white;"><i class="bi bi-tag"></i></span>
+                                <input asp-for="ProductName" class="form-control" style="border-color: #88c8bc;" placeholder="ProductName" />
+                            </div>
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label fw-bold" style="color: black;">Description</label>
+                            <textarea asp-for="Description" class="form-control" style="border-color: #88c8bc;" rows="3" placeholder="Description"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label fw-bold" style="color: black;">Price</label>
+                            <div class="input-group">
+                                <span class="input-group-text" style="background-color: #88c8bc; color: white;"><i class="bi bi-currency-dollar"></i></span>
+                                <input asp-for="Price" class="form-control" style="border-color: #88c8bc;" placeholder="Price" />
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Quantity" class="form-label fw-bold" style="color: black;">Quantity</label>
+                            <div class="input-group">
+                                <span class="input-group-text" style="background-color: #88c8bc; color: white;"><i class="bi bi-box"></i></span>
+                                <input asp-for="Quantity" class="form-control" style="border-color: #88c8bc;" placeholder="Quantity" />
+                            </div>
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ImageUrl" class="form-label fw-bold" style="color: black;">ImageUrl</label>
+                            <div class="input-group">
+                                <span class="input-group-text" style="background-color: #88c8bc; color: white;"><i class="bi bi-image"></i></span>
+                                <input asp-for="ImageUrl" class="form-control" style="border-color: #88c8bc;" placeholder="ImageUrl" />
+                            </div>
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CategoryId" class="form-label fw-bold" style="color:black;">Category</label>
+                            <select asp-for="CategoryId" class="form-select" style="border-color: #88c8bc;" asp-items="ViewBag.CategoryId">
+                                <option value="">-- Select Category --</option>
+                            </select>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-lg" style="background-color: #88c8bc; color: white;">
+                                <i class="bi bi-plus-circle"></i> Add
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="btn" style="background-color: black; color: white;"><i class="bi bi-arrow-left"></i> Back</a>
+            </div>
+        </div>
+    </div>
+</div>
